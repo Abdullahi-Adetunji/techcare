@@ -18,7 +18,7 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="flex flex-wrap items-center justify-between gap-4 bg-white px-6 py-4 shadow-sm">
+    <header className="flex shrink-0 flex-wrap items-center justify-between gap-4 bg-white px-6 py-4 shadow-sm">
       <div className="flex items-center gap-2">
         <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden="true">
           <rect x="4" y="4" width="10" height="10" rx="2" fill="#01F0D0" />

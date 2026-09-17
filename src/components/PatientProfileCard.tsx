@@ -17,7 +17,7 @@ export function PatientProfileCard({ patient }: { patient: Patient }) {
   ];
 
   return (
-    <section className="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-sm">
+    <section className="flex shrink-0 flex-col items-center rounded-2xl bg-white p-6 text-center shadow-sm">
       <img
         src={patient.profile_picture}
         alt={patient.name}

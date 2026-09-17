@@ -2,9 +2,9 @@ import { DownloadIcon } from "./icons";
 
 export function LabResults({ results }: { results: string[] }) {
   return (
-    <section className="rounded-2xl bg-white p-5 shadow-sm">
-      <h3 className="mb-3 text-lg font-bold text-slate-900">Lab Results</h3>
-      <ul className="flex flex-col">
+    <section className="flex min-h-0 flex-col rounded-2xl bg-white p-5 shadow-sm lg:min-h-40 lg:flex-1">
+      <h3 className="mb-3 shrink-0 text-lg font-bold text-slate-900">Lab Results</h3>
+      <ul className="flex min-h-0 flex-col overscroll-contain lg:flex-1 lg:overflow-y-auto">
         {results.map((result, index) => (
           <li
             key={result}

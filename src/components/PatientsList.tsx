@@ -10,14 +10,14 @@ export function PatientsList({ patients, selectedName }: PatientsListProps) {
   return (
     <section
       aria-label="Patients"
-      className="rounded-2xl bg-white p-5 shadow-sm lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto"
+      className="flex min-h-0 flex-col rounded-2xl bg-white p-5 shadow-sm lg:h-full"
     >
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex shrink-0 items-center justify-between">
         <h2 className="text-lg font-bold text-slate-900">Patients</h2>
         <SearchIcon className="h-5 w-5 text-slate-400" />
       </div>
 
-      <ul className="flex flex-col gap-1">
+      <ul className="flex min-h-0 flex-col gap-1 overscroll-contain lg:flex-1 lg:overflow-y-auto">
         {patients.map((patient) => {
           const isSelected = patient.name === selectedName;
           return (

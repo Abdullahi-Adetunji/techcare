@@ -7,8 +7,12 @@ export function Tabs({ children }: { children: React.ReactNode }) {
   const [activeTab, setActiveTab] = useState<TabName>("Overview");
 
   return (
-    <div>
-      <div role="tablist" aria-label="Patient record sections" className="mb-5 flex gap-6 border-b border-slate-200">
+    <div className="flex min-h-0 flex-col gap-5 lg:h-full lg:overflow-hidden">
+      <div
+        role="tablist"
+        aria-label="Patient record sections"
+        className="flex shrink-0 gap-6 border-b border-slate-200"
+      >
         {TAB_NAMES.map((tab) => (
           <button
             key={tab}
@@ -26,13 +30,15 @@ export function Tabs({ children }: { children: React.ReactNode }) {
         ))}
       </div>
 
-      {activeTab === "Overview" ? (
-        children
-      ) : (
-        <p className="rounded-2xl bg-white p-8 text-center text-sm text-slate-400 shadow-sm">
-          {activeTab} coming soon.
-        </p>
-      )}
+      <div className="min-h-0 overscroll-contain lg:flex-1 lg:overflow-y-auto">
+        {activeTab === "Overview" ? (
+          <div className="flex flex-col gap-5">{children}</div>
+        ) : (
+          <p className="rounded-2xl bg-white p-8 text-center text-sm text-slate-400 shadow-sm">
+            {activeTab} coming soon.
+          </p>
+        )}
+      </div>
     </div>
   );
 }
