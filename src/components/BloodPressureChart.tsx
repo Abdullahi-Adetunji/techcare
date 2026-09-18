@@ -93,20 +93,22 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
 
   return (
     <div className="rounded-2xl bg-[#f2edfc] p-5">
-      <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-base font-bold text-slate-900">Blood Pressure</h3>
-        <span className="flex items-center gap-1 text-sm font-semibold text-slate-500">
-          Last 6 months
-          <ChevronDownIcon className="h-4 w-4" />
-        </span>
-      </div>
+      <h3 className="mb-4 text-base font-bold text-slate-900">Blood Pressure</h3>
 
       <div className="flex flex-col gap-6 md:flex-row md:items-start">
-        <div className="h-64 w-full min-w-0 md:flex-1">
-          <Line data={data} options={options} />
+        <div className="min-w-0 md:flex-1">
+          <div className="mb-2 flex justify-end">
+            <span className="flex items-center gap-1 text-sm font-semibold text-slate-500">
+              Last 6 months
+              <ChevronDownIcon className="h-4 w-4" />
+            </span>
+          </div>
+          <div className="h-64 w-full">
+            <Line data={data} options={options} />
+          </div>
         </div>
 
-        <div className="flex shrink-0 flex-col gap-10 md:w-44 md:pt-2">
+        <div className="flex shrink-0 flex-col gap-10 md:w-44">
           <div>
             <p className="flex items-center gap-2 text-sm font-semibold text-slate-500">
               <span
