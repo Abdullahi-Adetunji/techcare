@@ -102,11 +102,11 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
       </div>
 
       <div className="flex flex-col gap-6 md:flex-row md:items-start">
-        <div className="h-64 w-full md:flex-1">
+        <div className="h-64 w-full min-w-0 md:flex-1">
           <Line data={data} options={options} />
         </div>
 
-        <div className="flex shrink-0 flex-col gap-10 md:w-40 md:pt-2">
+        <div className="flex shrink-0 flex-col gap-10 md:w-44 md:pt-2">
           <div>
             <p className="flex items-center gap-2 text-sm font-semibold text-slate-500">
               <span
@@ -118,7 +118,7 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
             <p className="mt-1 text-2xl font-bold text-slate-900">
               {latest.blood_pressure.systolic.value}
             </p>
-            <p className="flex items-center gap-1.5 text-sm font-semibold text-slate-500">
+            <p className="flex items-center gap-1.5 text-sm font-semibold whitespace-nowrap text-slate-500">
               {latest.blood_pressure.systolic.levels.toLowerCase().includes("higher") ? (
                 <ArrowUpIcon className="h-2.5 w-2.5" />
               ) : (
@@ -139,7 +139,7 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
             <p className="mt-1 text-2xl font-bold text-slate-900">
               {latest.blood_pressure.diastolic.value}
             </p>
-            <p className="flex items-center gap-1.5 text-sm font-semibold text-slate-500">
+            <p className="flex items-center gap-1.5 text-sm font-semibold whitespace-nowrap text-slate-500">
               {latest.blood_pressure.diastolic.levels.toLowerCase().includes("higher") ? (
                 <ArrowUpIcon className="h-2.5 w-2.5" />
               ) : (
