@@ -18,7 +18,7 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="mx-5 mt-5 grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm lg:gap-4 lg:px-6 lg:py-4">
+    <header className="mx-5 mt-5 grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-full bg-white px-4 py-3 shadow-sm lg:gap-4 lg:px-6 lg:py-4">
       <div className="flex items-center">
         <img src="/logo.svg" alt="Tech.Care" className="h-8 w-auto" />
       </div>
