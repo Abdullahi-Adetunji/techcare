@@ -18,7 +18,7 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="grid shrink-0 grid-cols-[auto_1fr_auto] items-center gap-3 bg-white px-4 py-3 shadow-sm lg:gap-4 lg:px-6 lg:py-4">
+    <header className="sticky top-0 z-10 grid grid-cols-[auto_1fr_auto] items-center gap-3 bg-white px-4 py-3 shadow-sm lg:gap-4 lg:px-6 lg:py-4">
       <div className="flex items-center gap-2">
         <svg viewBox="0 0 32 32" className="h-8 w-8 shrink-0" aria-hidden="true">
           <path d="M16 16 16 2 30 16Z" fill="#01D8C4" />

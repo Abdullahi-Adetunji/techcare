@@ -12,7 +12,7 @@ function App() {
   const state = usePatients();
 
   return (
-    <div className="flex flex-col bg-[#f6f7f9] lg:h-screen lg:overflow-hidden">
+    <div className="min-h-screen bg-[#f6f7f9]">
       <Header />
 
       {state.status === "loading" && (
@@ -40,15 +40,15 @@ function App() {
           }
 
           return (
-            <main className="grid grid-cols-1 gap-5 p-5 lg:min-h-0 lg:flex-1 lg:grid-cols-[280px_1fr_280px] lg:overflow-y-auto">
+            <main className="grid grid-cols-1 items-start gap-5 p-5 lg:grid-cols-[280px_1fr_280px]">
               <PatientsList patients={state.patients} selectedName={patient.name} />
 
-              <div className="flex flex-col gap-5 lg:h-full lg:min-h-0">
+              <div className="flex flex-col gap-5">
                 <DiagnosisHistory history={patient.diagnosis_history} />
                 <DiagnosticList items={patient.diagnostic_list} />
               </div>
 
-              <div className="flex flex-col gap-5 lg:h-full lg:min-h-0">
+              <div className="flex flex-col gap-5">
                 <PatientProfileCard patient={patient} />
                 <LabResults results={patient.lab_results} />
               </div>
