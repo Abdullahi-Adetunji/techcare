@@ -12,9 +12,11 @@ import type { DiagnosisEntry } from "../types/patient";
 import { ChevronUpIcon, ChevronDownIcon } from "./icons";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Filler);
+ChartJS.defaults.font.family =
+  "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
 
-const SYSTOLIC_COLOR = "#e8749a";
-const DIASTOLIC_COLOR = "#8c7fe8";
+const SYSTOLIC_COLOR = "#e0779c";
+const DIASTOLIC_COLOR = "#8c82e0";
 
 interface BloodPressureChartProps {
   history: DiagnosisEntry[];
@@ -37,10 +39,13 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
         borderColor: SYSTOLIC_COLOR,
         backgroundColor: SYSTOLIC_COLOR,
         pointBackgroundColor: SYSTOLIC_COLOR,
+        pointBorderColor: "#fff",
+        pointBorderWidth: 2,
         pointRadius: 5,
         pointHoverRadius: 6,
-        borderWidth: 3,
+        borderWidth: 2.5,
         tension: 0.4,
+        capBezierPoints: true,
       },
       {
         label: "Diastolic",
@@ -48,10 +53,13 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
         borderColor: DIASTOLIC_COLOR,
         backgroundColor: DIASTOLIC_COLOR,
         pointBackgroundColor: DIASTOLIC_COLOR,
+        pointBorderColor: "#fff",
+        pointBorderWidth: 2,
         pointRadius: 5,
         pointHoverRadius: 6,
-        borderWidth: 3,
+        borderWidth: 2.5,
         tension: 0.4,
+        capBezierPoints: true,
       },
     ],
   };
@@ -71,12 +79,14 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
       y: {
         min: 60,
         max: 180,
-        ticks: { stepSize: 20, color: "#8a8ba3" },
-        grid: { color: "#e3ddf5" },
+        ticks: { stepSize: 20, color: "#9291a5", padding: 8, font: { size: 12 } },
+        grid: { color: "#ddd6f2", drawTicks: false },
+        border: { display: false },
       },
       x: {
-        ticks: { color: "#8a8ba3" },
+        ticks: { color: "#9291a5", font: { size: 12 } },
         grid: { display: false },
+        border: { display: false },
       },
     },
   };
@@ -91,12 +101,12 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
         </span>
       </div>
 
-      <div className="flex flex-col gap-6 md:flex-row">
+      <div className="flex flex-col gap-6 md:flex-row md:items-start">
         <div className="h-64 flex-1">
           <Line data={data} options={options} />
         </div>
 
-        <div className="flex shrink-0 flex-col justify-center gap-8 md:w-44">
+        <div className="flex shrink-0 flex-col gap-10 md:w-40 md:pt-2">
           <div>
             <p className="flex items-center gap-2 text-sm font-semibold text-slate-500">
               <span

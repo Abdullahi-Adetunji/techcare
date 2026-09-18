@@ -30,9 +30,9 @@ export function Tabs({ children }: { children: React.ReactNode }) {
         ))}
       </div>
 
-      <div className="min-h-0 overscroll-contain lg:flex-1 lg:overflow-y-auto">
+      <div className="flex min-h-0 flex-col lg:flex-1">
         {activeTab === "Overview" ? (
-          <div className="flex flex-col gap-5">{children}</div>
+          <div className="flex min-h-0 flex-1 flex-col gap-5">{children}</div>
         ) : (
           <p className="rounded-2xl bg-white p-8 text-center text-sm text-slate-400 shadow-sm">
             {activeTab} coming soon.

@@ -7,7 +7,7 @@ export function DiagnosisHistory({ history }: { history: DiagnosisEntry[] }) {
   const latest = history[0];
 
   return (
-    <section aria-label="Diagnosis History">
+    <section aria-label="Diagnosis History" className="shrink-0 rounded-2xl bg-white p-5 shadow-sm">
       <h2 className="mb-4 text-lg font-bold text-slate-900">Diagnosis History</h2>
 
       <BloodPressureChart history={history} />
