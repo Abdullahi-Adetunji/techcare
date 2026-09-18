@@ -102,7 +102,7 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
       </div>
 
       <div className="flex flex-col gap-6 md:flex-row md:items-start">
-        <div className="h-64 flex-1">
+        <div className="h-64 w-full md:flex-1">
           <Line data={data} options={options} />
         </div>
 

@@ -1,7 +1,6 @@
 import { Header } from "./components/Header";
 import { PatientsList } from "./components/PatientsList";
 import { PatientProfileCard } from "./components/PatientProfileCard";
-import { Tabs } from "./components/Tabs";
 import { DiagnosisHistory } from "./components/DiagnosisHistory";
 import { DiagnosticList } from "./components/DiagnosticList";
 import { LabResults } from "./components/LabResults";
@@ -13,7 +12,7 @@ function App() {
   const state = usePatients();
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-[#f6f7f9]">
+    <div className="flex flex-col bg-[#f6f7f9] lg:h-screen lg:overflow-hidden">
       <Header />
 
       {state.status === "loading" && (
@@ -41,15 +40,15 @@ function App() {
           }
 
           return (
-            <main className="grid min-h-0 flex-1 grid-cols-1 gap-5 overflow-y-auto p-5 lg:grid-cols-[280px_1fr_280px] lg:overflow-hidden">
+            <main className="grid grid-cols-1 gap-5 p-5 lg:min-h-0 lg:flex-1 lg:grid-cols-[280px_1fr_280px] lg:overflow-hidden">
               <PatientsList patients={state.patients} selectedName={patient.name} />
 
-              <Tabs>
+              <div className="flex flex-col gap-5 lg:h-full lg:min-h-0 lg:overflow-hidden">
                 <DiagnosisHistory history={patient.diagnosis_history} />
                 <DiagnosticList items={patient.diagnostic_list} />
-              </Tabs>
+              </div>
 
-              <div className="flex min-h-0 flex-col gap-5 lg:h-full lg:overflow-hidden">
+              <div className="flex flex-col gap-5 lg:h-full lg:min-h-0 lg:overflow-hidden">
                 <PatientProfileCard patient={patient} />
                 <LabResults results={patient.lab_results} />
               </div>

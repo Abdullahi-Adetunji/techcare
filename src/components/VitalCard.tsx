@@ -15,7 +15,7 @@ export function VitalCard({ icon: Icon, iconBg, cardBg, label, value, levels }: 
   const isHigher = levels.toLowerCase().includes("higher");
 
   return (
-    <div className={`flex flex-1 flex-col gap-4 rounded-2xl p-5 ${cardBg}`}>
+    <div className={`flex flex-col gap-4 rounded-2xl p-5 sm:flex-1 ${cardBg}`}>
       <span className={`flex h-14 w-14 items-center justify-center rounded-full ${iconBg}`}>
         <Icon className="h-7 w-7" />
       </span>

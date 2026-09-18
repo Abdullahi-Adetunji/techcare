@@ -18,38 +18,41 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="grid shrink-0 grid-cols-[auto_1fr_auto] items-center gap-4 bg-white px-6 py-4 shadow-sm">
+    <header className="grid shrink-0 grid-cols-[auto_1fr_auto] items-center gap-3 bg-white px-4 py-3 shadow-sm lg:gap-4 lg:px-6 lg:py-4">
       <div className="flex items-center gap-2">
-        <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden="true">
+        <svg viewBox="0 0 32 32" className="h-8 w-8 shrink-0" aria-hidden="true">
           <path d="M16 16 16 2 30 16Z" fill="#01D8C4" />
           <path d="M16 16 30 16 16 30Z" fill="#0B1E33" />
           <path d="M16 16 16 30 2 16Z" fill="#01D8C4" />
           <path d="M16 16 2 16 16 2Z" fill="#0B1E33" />
         </svg>
-        <span className="text-lg font-bold whitespace-nowrap text-slate-900">
+        <span className="hidden text-lg font-bold whitespace-nowrap text-slate-900 sm:inline">
           Tech<span className="text-teal-500">.</span>Care
         </span>
       </div>
 
-      <nav aria-label="Primary" className="flex flex-wrap items-center justify-center gap-1">
+      <nav
+        aria-label="Primary"
+        className="flex min-w-0 items-center gap-1 overflow-x-auto lg:justify-center lg:overflow-visible"
+      >
         {navItems.map(({ label, icon: Icon, active }) => (
           <a
             key={label}
             href="#"
             aria-current={active ? "page" : undefined}
-            className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors ${
+            className={`flex shrink-0 items-center gap-2 rounded-full px-3.5 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors lg:px-5 ${
               active
                 ? "bg-teal-400 text-white"
                 : "text-slate-500 hover:bg-slate-50 hover:text-slate-700"
             }`}
           >
-            <Icon className="h-5 w-5" />
-            {label}
+            <Icon className="h-5 w-5 shrink-0" />
+            <span className="hidden sm:inline">{label}</span>
           </a>
         ))}
       </nav>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 lg:gap-4">
         <img
           src="https://fedskillstest.ct.digital/3.png"
           alt=""

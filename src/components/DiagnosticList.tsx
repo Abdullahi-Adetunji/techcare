@@ -9,17 +9,19 @@ const statusStyles: Record<string, string> = {
 
 export function DiagnosticList({ items }: { items: DiagnosticListItem[] }) {
   return (
-    <section className="flex min-h-0 flex-1 flex-col rounded-2xl bg-white p-5 shadow-sm">
+    <section className="flex flex-col rounded-2xl bg-white p-5 shadow-sm lg:min-h-0 lg:flex-1">
       <h3 className="mb-4 shrink-0 text-lg font-bold text-slate-900">Diagnostic List</h3>
-      <div className="min-h-0 flex-1 overflow-auto overscroll-contain">
+      <div className="overflow-x-auto lg:min-h-0 lg:flex-1 lg:overflow-auto lg:overscroll-contain">
         <table className="w-full min-w-[480px] border-collapse text-left">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50 text-sm text-slate-500">
-              <th className="sticky top-0 rounded-l-lg bg-slate-50 px-4 py-3 font-semibold">
+              <th className="rounded-l-lg bg-slate-50 px-4 py-3 font-semibold lg:sticky lg:top-0">
                 Problem/Diagnosis
               </th>
-              <th className="sticky top-0 bg-slate-50 px-4 py-3 font-semibold">Description</th>
-              <th className="sticky top-0 rounded-r-lg bg-slate-50 px-4 py-3 font-semibold">
+              <th className="bg-slate-50 px-4 py-3 font-semibold lg:sticky lg:top-0">
+                Description
+              </th>
+              <th className="rounded-r-lg bg-slate-50 px-4 py-3 font-semibold lg:sticky lg:top-0">
                 Status
               </th>
             </tr>
