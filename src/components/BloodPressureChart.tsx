@@ -9,7 +9,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import type { DiagnosisEntry } from "../types/patient";
-import { ChevronUpIcon, ChevronDownIcon } from "./icons";
+import { ChevronDownIcon, ArrowUpIcon, ArrowDownIcon } from "./icons";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Filler);
 ChartJS.defaults.font.family =
@@ -118,11 +118,11 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
             <p className="mt-1 text-2xl font-bold text-slate-900">
               {latest.blood_pressure.systolic.value}
             </p>
-            <p className="flex items-center gap-1 text-sm font-semibold text-slate-500">
+            <p className="flex items-center gap-1.5 text-sm font-semibold text-slate-500">
               {latest.blood_pressure.systolic.levels.toLowerCase().includes("higher") ? (
-                <ChevronUpIcon className="h-4 w-4" />
+                <ArrowUpIcon className="h-2.5 w-2.5" />
               ) : (
-                <ChevronDownIcon className="h-4 w-4" />
+                <ArrowDownIcon className="h-2.5 w-2.5" />
               )}
               {latest.blood_pressure.systolic.levels}
             </p>
@@ -139,11 +139,11 @@ export function BloodPressureChart({ history }: BloodPressureChartProps) {
             <p className="mt-1 text-2xl font-bold text-slate-900">
               {latest.blood_pressure.diastolic.value}
             </p>
-            <p className="flex items-center gap-1 text-sm font-semibold text-slate-500">
+            <p className="flex items-center gap-1.5 text-sm font-semibold text-slate-500">
               {latest.blood_pressure.diastolic.levels.toLowerCase().includes("higher") ? (
-                <ChevronUpIcon className="h-4 w-4" />
+                <ArrowUpIcon className="h-2.5 w-2.5" />
               ) : (
-                <ChevronDownIcon className="h-4 w-4" />
+                <ArrowDownIcon className="h-2.5 w-2.5" />
               )}
               {latest.blood_pressure.diastolic.levels}
             </p>

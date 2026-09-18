@@ -5,7 +5,7 @@ import {
   MessageIcon,
   TransactionsIcon,
   GearIcon,
-  DotsVerticalIcon,
+  DotsHorizontalIcon,
 } from "./icons";
 
 const navItems = [
@@ -19,16 +19,8 @@ const navItems = [
 export function Header() {
   return (
     <header className="mx-5 mt-5 grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm lg:gap-4 lg:px-6 lg:py-4">
-      <div className="flex items-center gap-2">
-        <svg viewBox="0 0 32 32" className="h-8 w-8 shrink-0" aria-hidden="true">
-          <path d="M16 16 16 2 30 16Z" fill="#01D8C4" />
-          <path d="M16 16 30 16 16 30Z" fill="#0B1E33" />
-          <path d="M16 16 16 30 2 16Z" fill="#01D8C4" />
-          <path d="M16 16 2 16 16 2Z" fill="#0B1E33" />
-        </svg>
-        <span className="hidden text-lg font-bold whitespace-nowrap text-slate-900 sm:inline">
-          Tech<span className="text-teal-500">.</span>Care
-        </span>
+      <div className="flex items-center">
+        <img src="/logo.svg" alt="Tech.Care" className="h-8 w-auto" />
       </div>
 
       <nav
@@ -53,11 +45,7 @@ export function Header() {
       </nav>
 
       <div className="flex items-center gap-2 lg:gap-4">
-        <img
-          src="https://fedskillstest.ct.digital/3.png"
-          alt=""
-          className="h-11 w-11 rounded-full object-cover"
-        />
+        <img src="/doctor.png" alt="" className="h-11 w-11 rounded-full object-cover" />
         <div className="hidden leading-tight sm:block">
           <p className="text-sm font-bold whitespace-nowrap text-slate-900">Dr. Jose Simmons</p>
           <p className="text-xs whitespace-nowrap text-slate-400">General Practitioner</p>
@@ -66,7 +54,7 @@ export function Header() {
           <GearIcon className="h-5 w-5" />
         </button>
         <button aria-label="More options" className="text-slate-400 hover:text-slate-600">
-          <DotsVerticalIcon className="h-5 w-5" />
+          <DotsHorizontalIcon className="h-5 w-5" />
         </button>
       </div>
     </header>

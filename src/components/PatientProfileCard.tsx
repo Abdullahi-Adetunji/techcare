@@ -1,5 +1,4 @@
 import type { Patient } from "../types/patient";
-import { CalendarIcon, GenderIcon, PhoneIcon, ShieldIcon } from "./icons";
 
 function formatDob(dob: string) {
   const date = new Date(dob);
@@ -8,16 +7,18 @@ function formatDob(dob: string) {
 }
 
 export function PatientProfileCard({ patient }: { patient: Patient }) {
+  const genderIcon = patient.gender.toLowerCase() === "male" ? "/icons/male.svg" : "/icons/female.svg";
+
   const details = [
-    { icon: CalendarIcon, label: "Date Of Birth", value: formatDob(patient.date_of_birth) },
-    { icon: GenderIcon, label: "Gender", value: patient.gender },
-    { icon: PhoneIcon, label: "Contact Info.", value: patient.phone_number },
-    { icon: PhoneIcon, label: "Emergency Contacts", value: patient.emergency_contact },
-    { icon: ShieldIcon, label: "Insurance Provider", value: patient.insurance_type },
+    { icon: "/icons/birth.svg", label: "Date Of Birth", value: formatDob(patient.date_of_birth) },
+    { icon: genderIcon, label: "Gender", value: patient.gender },
+    { icon: "/icons/phone.svg", label: "Contact Info.", value: patient.phone_number },
+    { icon: "/icons/phone.svg", label: "Emergency Contacts", value: patient.emergency_contact },
+    { icon: "/icons/insurance.svg", label: "Insurance Provider", value: patient.insurance_type },
   ];
 
   return (
-    <section className="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-sm">
+    <section className="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-sm lg:shrink-0">
       <img
         src={patient.profile_picture}
         alt={patient.name}
@@ -26,11 +27,9 @@ export function PatientProfileCard({ patient }: { patient: Patient }) {
       <h2 className="mt-4 text-xl font-bold text-slate-900">{patient.name}</h2>
 
       <dl className="mt-6 flex w-full flex-col gap-5 text-left">
-        {details.map(({ icon: Icon, label, value }) => (
+        {details.map(({ icon, label, value }) => (
           <div key={label} className="flex items-start gap-3">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500">
-              <Icon className="h-4.5 w-4.5" />
-            </span>
+            <img src={icon} alt="" className="h-9 w-9 shrink-0" />
             <div>
               <dt className="text-xs text-slate-400">{label}</dt>
               <dd className="text-sm font-semibold text-slate-800">{value}</dd>
