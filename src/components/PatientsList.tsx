@@ -8,13 +8,16 @@ interface PatientsListProps {
 
 export function PatientsList({ patients, selectedName }: PatientsListProps) {
   return (
-    <section aria-label="Patients" className="rounded-2xl bg-white p-5 shadow-sm">
-      <div className="mb-4 flex items-center justify-between">
+    <section
+      aria-label="Patients"
+      className="rounded-2xl bg-white p-5 shadow-sm lg:flex lg:h-full lg:min-h-0 lg:flex-col"
+    >
+      <div className="mb-4 flex items-center justify-between lg:shrink-0">
         <h2 className="text-lg font-bold text-slate-900">Patients</h2>
         <SearchIcon className="h-5 w-5 text-slate-400" />
       </div>
 
-      <ul className="flex flex-col gap-1 overflow-y-auto overscroll-contain lg:max-h-[calc(100vh-220px)]">
+      <ul className="flex flex-col gap-1 overscroll-contain lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
         {patients.map((patient) => {
           const isSelected = patient.name === selectedName;
           return (
